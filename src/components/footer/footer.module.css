@@ -1,0 +1,12 @@
+.footer {
+    display: flex;
+    width: 98.25vw;
+    padding: 0.125rem 0.875rem;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-shrink: 0;
+    background: #121726;
+    color: white;
+    bottom: 0;
+    position: fixed;
+}

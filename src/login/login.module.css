@@ -1,0 +1,17 @@
+.main {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 0rem 5.375rem;
+    flex-wrap: wrap;
+    background: linear-gradient(180deg, #04070F 0%, #B43703 76.32%, #E84500 98.44%);
+}
+
+.form {
+    width: 100vw;
+    height: 81.8%;
+    display: flex;
+    justify-content: space-around;
+}

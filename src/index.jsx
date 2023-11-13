@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import FormLogin from './componentes/form/form';
-import Header from './componentes/header/header';
+import FormLogin from './components/form/form';
 import './index.css';
+import Login from './login/login';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Header/>
+    <Login/>
   </React.StrictMode>
 );
 
