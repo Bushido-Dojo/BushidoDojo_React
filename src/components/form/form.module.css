@@ -1,0 +1,51 @@
+.form {
+    width: 25rem;
+    height: 35rem;
+    flex-shrink: 0;
+    border-radius: 0.5rem;
+    background: #FFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.input {
+    width: 19rem;
+    height: 5rem;
+    flex-shrink: 0;
+}
+
+.input>label {
+    color: #000;
+    font-family: Inter;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.input>input {
+    width: 18rem;
+    height: 2.5rem;
+    flex-shrink: 0;
+    border-radius: 8px;
+    border: none;
+    background: #E9E9E9;
+}
+
+.form>button[type=submit] {
+    width: 50%;
+    padding: 5px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    border: none;
+    color: #FFF;
+    font-family: Inter;
+    font-size: 1.6875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background: #121726;
+    flex-shrink: 0;
+}
