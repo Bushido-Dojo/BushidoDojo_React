@@ -108,9 +108,24 @@ alter table Karate.professor
 drop column Horarios
 
 
-select * from karate.professor
--- Adicionar novas colunas para armazenar dia da semana e horário de início das aulas na tabela Karate.Professor
-ALTER TABLE Karate.Professor
-ADD DiaSemana INT, -- Coluna para armazenar o dia da semana (1 a 7)
-    HorarioInicioAula TIME; -- Coluna para armazenar o horário de início das aulas
+CREATE TABLE Karate.HorariosAula (
+    Id_Horario INT PRIMARY KEY IDENTITY(1,1),
+    Id_Prof INT,
+    DiaSemana INT,
+    HorarioInicio TIME,
+    FOREIGN KEY (Id_Prof) REFERENCES Karate.Professor(Id_Prof)
+);
+
+
+select * from Karate.ProfessorFaixa
+
+select * from Karate.HorariosAula 
+
+CREATE TABLE Karate.ProfessorFaixa (
+    Id_Prof INT,
+    Id_Faixa INT,
+    FOREIGN KEY (Id_Prof) REFERENCES Karate.Professor(Id_Prof),
+    FOREIGN KEY (Id_Faixa) REFERENCES Karate.Faixa(Id_Faixa)
+);
+
 
