@@ -17,13 +17,13 @@ CREATE TABLE Karate.Aluno (
 
 CREATE TABLE Karate.Pagamento (
     Cod_Pgmnto INT PRIMARY KEY IDENTITY(1,1),
-    Id_Matrícula INT,
+    Id_Matrï¿½cula INT,
     Id_Aluno INT,
 
     FOREIGN KEY (Id_Aluno) REFERENCES Karate.Aluno(Id_Aluno)
 );
 
-CREATE TABLE Karate.Matrícula (
+CREATE TABLE Karate.Matrï¿½cula (
     Id_Matricula INT PRIMARY KEY IDENTITY (1,1),
     Id_Aluno INT,
     Id_Prof INT,
@@ -39,7 +39,7 @@ CREATE TABLE Karate.Professor (
 
 ALTER TABLE Karate.Pagamento
 ADD CONSTRAINT FK_Matricula_Pagamento
-FOREIGN KEY (Id_Matrícula) REFERENCES Karate.Matrícula(Id_Matricula);
+FOREIGN KEY (Id_Matrï¿½cula) REFERENCES Karate.Matrï¿½cula(Id_Matricula);
 
 
 ALTER TABLE KARATE.Aluno
@@ -49,11 +49,11 @@ FOREIGN KEY (Id_Faixa) REFERENCES Karate.Faixa(Id_Faixa);
 
 
 
-ALTER TABLE Karate.Matrícula
+ALTER TABLE Karate.Matrï¿½cula
 add Situacao varchar(11)
 
 
-alter table Karate.Matrícula
+alter table Karate.Matrï¿½cula
 Add ultimoPgto date, proxPgto date
 
 
@@ -70,16 +70,16 @@ alter table karate.pagamento
 add valorPago money not null;
 
 
-select * from Karate.Matrícula
+select * from Karate.Matrï¿½cula
 
-alter table Karate.Matrícula
+alter table Karate.Matrï¿½cula
 drop column Cod_Pgmnto,situacao
 
-alter table Karate.Matrícula
-drop constraint [FK__Matrícula__Cod_P__70FDBF69]
+alter table Karate.Matrï¿½cula
+drop constraint [FK__Matrï¿½cula__Cod_P__70FDBF69]
 
 
-alter table Karate.Matrícula
+alter table Karate.Matrï¿½cula
 add Id_Matricula int primary key identity(100,1)
 
 
@@ -103,5 +103,14 @@ SET dataPgto = dataUltimoPag;
 ALTER TABLE Karate.Pagamento
 DROP COLUMN dataUltimoPag;
 
+--remover coluna horario
+alter table Karate.professor
+drop column Horarios
 
-	
+
+select * from karate.professor
+-- Adicionar novas colunas para armazenar dia da semana e horÃ¡rio de inÃ­cio das aulas na tabela Karate.Professor
+ALTER TABLE Karate.Professor
+ADD DiaSemana INT, -- Coluna para armazenar o dia da semana (1 a 7)
+    HorarioInicioAula TIME; -- Coluna para armazenar o horÃ¡rio de inÃ­cio das aulas
+
