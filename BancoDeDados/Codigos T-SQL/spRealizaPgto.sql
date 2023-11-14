@@ -1,4 +1,4 @@
-CREATE OR ALTER PROCEDURE spRealizazPgto
+CREATE OR ALTER PROCEDURE Karate.spRealizaPgto
 @Id_Aluno INT
 AS
 BEGIN
@@ -8,12 +8,12 @@ BEGIN
         DECLARE @ultimoPgto DATE;
 
         SELECT @ultimoPgto = ultimoPgto
-        FROM Karate.Matrícula
+        FROM Karate.Matricula
         WHERE Id_Aluno = @Id_Aluno;
 
         IF (@ultimoPgto IS NULL)
         BEGIN
-            RAISERROR('Aluno não encontrado', 16, 1);
+            RAISERROR('Aluno nï¿½o encontrado', 16, 1);
         END
 
         DECLARE @valorParcela DECIMAL(18, 2);
@@ -27,7 +27,7 @@ BEGIN
 
         IF (@daysDiff < 0)
         BEGIN
-            RAISERROR('A data do pagamento é inválida', 16, 1);
+            RAISERROR('A data do pagamento ï¿½ invï¿½lida', 16, 1);
         END
         ELSE IF (@daysDiff BETWEEN 0 AND 30)
         BEGIN
@@ -43,11 +43,11 @@ BEGIN
         END
         ELSE
         BEGIN
-            DELETE FROM Karate.Matrícula WHERE Id_Aluno = @Id_Aluno;
-            RAISERROR('Matrícula deletada. Prazo de pagamento ultrapassado.', 16, 1);
+            DELETE FROM Karate.Matricula WHERE Id_Aluno = @Id_Aluno;
+            RAISERROR('Matrï¿½cula deletada. Prazo de pagamento ultrapassado.', 16, 1);
         END
 
-        UPDATE Karate.Matrícula
+        UPDATE Karate.Matricula
         SET ultimoPgto = GETDATE(),
             proxPgto = DATEADD(DAY, 30, GETDATE())
         WHERE Id_Aluno = @Id_Aluno;
