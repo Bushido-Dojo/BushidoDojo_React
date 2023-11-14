@@ -162,3 +162,4 @@ alter TABLE karate.HorariosAula
 add Turma varchar(1)
 FOREIGN KEY(Turma) REFERENCES Karate.Turmas (Turma)
 
+SELECT * from Karate.HorariosAula
