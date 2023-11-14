@@ -37,6 +37,19 @@ VALUES (0,'Branca'),
        (6,'Marrom'), 
        (7,'Preta');
 
--- Inserts ProfFaixa
-INSERT INTO karate.ProfessorFaixa(Id_Prof, Id_Faixa)
-VALUES(1,0),(1,1),(1,2),(1,3),(2,4),(2,5),(2,6),(2,7)
+-- Inserts Turma
+
+INSERT into Karate.Turmas(turma)
+VALUES ('A'),('B')
+
+
+
+--Update Tabela Horario
+
+Update Karate.HorariosAula
+set Turma = 'A'
+where Id_Prof = 1
+
+Update Karate.HorariosAula
+set Turma = 'B'
+where Id_Prof = 2

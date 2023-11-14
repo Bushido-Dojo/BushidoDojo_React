@@ -117,15 +117,48 @@ CREATE TABLE Karate.HorariosAula (
 );
 
 
-select * from Karate.ProfessorFaixa
-
 select * from Karate.HorariosAula 
 
-CREATE TABLE Karate.ProfessorFaixa (
-    Id_Prof INT,
-    Id_Faixa INT,
-    FOREIGN KEY (Id_Prof) REFERENCES Karate.Professor(Id_Prof),
-    FOREIGN KEY (Id_Faixa) REFERENCES Karate.Faixa(Id_Faixa)
-);
 
+
+CREATE TABLE Karate.Turmas(
+    turma VARCHAR(1) primary key 
+)
+
+
+alter TABLE karate.Faixa
+ADD Turma varCHAR(1)
+FOREIGN key(Turma) REFERENCES Karate.Turmas (Turma)
+
+select * from Karate.Faixa
+
+
+UPDATE Karate.Faixa
+SET Turma = 'A'
+WHERE Id_Faixa BETWEEN 0 AND 3;
+
+
+UPDATE Karate.Faixa
+SET Turma = 'B'
+WHERE Id_Faixa BETWEEN 4 AND 7;
+
+
+
+alter TABLE Karate.Professor
+add Turma VARCHAR(1)
+FOREIGN key (Turma) REFERENCES Karate.Turmas (Turma)
+
+update Karate.Professor
+set Turma = 'A'
+WHERE Id_Prof = 1
+
+UPDATE Karate.Professor
+set Turma = 'B'
+WHERE Id_Prof = 2
+
+SELECT * from Karate.Turmas
+
+alter TABLE karate.HorariosAula
+add Turma varchar(1)
+FOREIGN KEY(Turma) REFERENCES Karate.Turmas (Turma)
 
