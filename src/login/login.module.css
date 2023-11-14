@@ -15,3 +15,14 @@
     display: flex;
     justify-content: space-around;
 }
+
+.form  > .slogan {
+    margin-top: 40px;
+    margin-right: -150px;
+    height: min-content;
+}
+
+.slogan > img {
+    height: 68px;
+    
+}
