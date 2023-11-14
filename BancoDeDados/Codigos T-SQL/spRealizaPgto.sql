@@ -16,8 +16,7 @@ BEGIN
             RAISERROR('Aluno n�o encontrado', 16, 1);
         END
 
-        DECLARE @valorParcela DECIMAL(18, 2);
-        DECLARE @valorMulta DECIMAL(18, 2);
+        DECLARE @valorParcela DECIMAL(18, 2), @valorMulta DECIMAL(18, 2);
 
         SELECT @valorParcela = valorParcela, @valorMulta = valorMulta
         FROM Karate.ValorPgto;
