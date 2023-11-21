@@ -15,7 +15,9 @@ const FormLogin = () => {
             <button type="submit">Login</button>
             <div className="cadastro">
                 <p>Não possui cadastro?</p>
-                <link rel="Cadastre-se" href="#" />
+            </div>
+            <div className='cadastro_link'>
+                Cadastre-se <a href="#"></a>
             </div>
         </form>
     )

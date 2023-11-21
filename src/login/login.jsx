@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './login.module.css'
 import Header from '../components/header/header'
 import Footer from '../components/footer/footer'
+// import Visual from '../components/visual/visual'
 import FormLogin from '../components/form/form'
 import img from '../components/images/slogan.png'
 
