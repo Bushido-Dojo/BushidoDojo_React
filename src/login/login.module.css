@@ -24,6 +24,5 @@
 
 .slogan > img {
     height: 68px;
-    background: url(./login.jsx), lightgray 50% / cover no-repeat;
-    box-shadow: 0px 8px 4px 0px rgba(0, 0, 0, 0.50);
+    background: url(./login.jsx)
 }
