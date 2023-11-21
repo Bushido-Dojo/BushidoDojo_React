@@ -3,7 +3,7 @@ import img from '../images/logo.png'
 import book from "../images/book.svg"
 import styles from './header.module.css'
 
-function Header() {
+function NewHeader() {
     return (
         <header className={styles.header}>
             <a href="#" className={styles.logo}>
@@ -20,4 +20,4 @@ function Header() {
     )
 }
 
-export default Header
+export default NewHeader
