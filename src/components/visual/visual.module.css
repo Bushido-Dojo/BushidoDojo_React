@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Koulen&family=Oswald:wght@200;300;400;500;600;700&display=swap');
+
+.img {
+    position: absolute;
+    top: 10%;
+    left: 0%;
+    width: 53.125rem;
+    z-index: 0;
+}
+
+.params > p {
+    font-family: 'Oswald', sans-serif;
+    color: #FFF;
+    font-size: 2.8rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.06rem;
+    margin: 0;
+}
+
+.params > p > span{
+    font-family: 'Oswald', sans-serif;
+    color: #FF4A00;
+}
+
+.params {
+    position: absolute;
+    width: 50%;
+    left: 5%;
+    z-index: 2;
+}
+
+.params2 > p {
+    font-family: 'Oswald', sans-serif;
+    color: #FFF;
+    font-size: 2.8rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.06rem;
+    margin: 0;
+}
+
+.params2 {
+    margin-top: 40px;
+}

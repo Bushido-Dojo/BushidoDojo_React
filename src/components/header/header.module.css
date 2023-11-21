@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Koulen&family=Oswald:wght@200;300;400;500;600;700&display=swap');
+
 .header {
     display: flex;
     align-items: center;
@@ -6,6 +8,7 @@
     background: #121726;
     justify-content: space-between;
     width: 96vw;
+    z-index: 1;
 }
 
 
@@ -27,6 +30,7 @@
 }
 
 .logo>h1 {
+    font-family: 'Koulen', sans-serif;
     color: #FFF;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     font-style: normal;
@@ -36,6 +40,7 @@
 }
 
 .logo>h1>span {
+    font-family: 'Koulen', sans-serif;
     color: #FF4A00;
     font-style: normal;
     font-weight: 400;
