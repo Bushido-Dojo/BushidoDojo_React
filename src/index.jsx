@@ -4,10 +4,10 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home/Home";
-import Login from "./pages/Login/login";
 import Error from "./pages/Error/Error";
 import About from "./pages/About/About";
 import Register from "./pages/Register/Register";
+import Login from "./pages/login/login";
 
 const Router = createBrowserRouter([
   {
@@ -23,7 +23,7 @@ const Router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <Login />,
+    element: <Login/>
   },
   {
     path: "/register",
