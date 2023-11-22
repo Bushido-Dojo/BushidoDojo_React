@@ -45,6 +45,10 @@
     background: #E9E9E9;
 }
 
+.input>input::placeholder {
+    opacity: 37%;
+}
+
 .form>button[type=submit] {
     cursor: pointer;
     width: 303px;

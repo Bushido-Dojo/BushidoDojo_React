@@ -7,11 +7,11 @@ const FormLogin = () => {
     <form action="" method="" className={styles.form}>
       <div className={styles.input}>
         <label>Usuario:</label>
-        <input type="text" />
+        <input type="text" placeholder="bushidodojo@gmail.com"/>
       </div>
       <div className={styles.input}>
         <label>Senha:</label>
-        <input type="password" />
+        <input type="password" placeholder="digite sua senha"/>
       </div>
       <button type="submit">Login</button>
       <div className="cadastro">
