@@ -1,0 +1,18 @@
+.main {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: flex-start;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    background: linear-gradient(180deg, #04070F 0%, #B43703 76.32%, #E84500 98.44%);
+    z-index: -2;
+}
+
+.form {
+    width: 100vw;
+    height: 80.2vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}

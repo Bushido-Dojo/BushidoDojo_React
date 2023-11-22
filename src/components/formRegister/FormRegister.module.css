@@ -1,0 +1,67 @@
+.form {
+    width: 35rem;
+    height: 35rem;
+    flex-shrink: 0;
+    border-radius: 0.5rem;
+    background: #FFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.form > :first-child {
+    margin-top: 70px;
+}
+
+.form > :last-child {
+    margin-top: -12px;
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+}
+
+.input {
+    width: 19rem;
+    height: 5rem;
+    flex-shrink: 0;
+}
+
+.input>.nome {
+    width: 8rem;
+}
+
+.input>label {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.input>input {
+    width: 297px;
+    height: 1.9rem;
+    flex-shrink: 0;
+    border-radius: 7px;
+    border: none;
+    background: #E9E9E9;
+}
+
+.form>button[type=submit] {
+    cursor: pointer;
+    width: 303px;
+    padding: 5px;
+    flex-shrink: 0;
+    border-radius: 37px;
+    border: none;
+    color: #FFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 27px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background: #121726;
+    flex-shrink: 0;
+}

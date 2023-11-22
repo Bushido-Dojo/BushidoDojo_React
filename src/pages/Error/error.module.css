@@ -1,0 +1,32 @@
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+}
+
+.error > * {
+  margin: 0;
+}
+
+.error > h1 {
+  color: black;
+  font-weight: 600;
+  font-size: 9rem;
+}
+
+.error > p {
+  font-size: 5.5rem;
+}
+
+.Link {
+  text-decoration: none;
+  border-radius: 8px;
+  color: white;
+  padding: 16px;
+  background-color: rgb(255, 111, 0);
+  width: fit-content;
+  height: fit-content;
+}

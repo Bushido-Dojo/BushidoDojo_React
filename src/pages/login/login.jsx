@@ -1,6 +1,4 @@
-import React from 'react'
 import styles from './login.module.css'
-// import Visual from '../components/visual/visual'
 import img from '../../components/images/slogan.png'
 import NewHeader from '../../components/header/header'
 import FormLogin from '../../components/formLogin/FormLogin'
