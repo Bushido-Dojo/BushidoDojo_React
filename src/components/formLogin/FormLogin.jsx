@@ -18,7 +18,7 @@ const FormLogin = () => {
         <p>Não possui cadastro?</p>
       </div>
       <div className="cadastro_link">
-        <Link to={"#"}>Cadastre-se</Link>
+        <Link to={"/register"}>Cadastre-se</Link>
       </div>
     </form>
   );

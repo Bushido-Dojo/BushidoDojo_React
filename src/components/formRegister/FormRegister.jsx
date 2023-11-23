@@ -4,18 +4,20 @@ import styles from "./FormRegister.module.css";
 const FormRegister = () => {
   return (
     <form action="" method="" className={styles.form}>
-      <div className={styles.input}>
-        <label className={styles.nome}>Nome:</label>
-        <input type="nome" />
+
+      <div className={styles.div2}>
+        <div className={styles.input}>
+          <p><label>Nome:</label></p>
+          <input type="nome" />
+        </div>
+        <div className={styles.input}>
+          <p><label>Sobrenome:</label></p>
+          <input type="sobrenome" />
+        </div>
       </div>
 
       <div className={styles.input}>
-        <label>Sobrenome:</label>
-        <input type="sobrenome" />
-      </div>
-
-      <div className={styles.input}>
-        <label>Cpf:</label>
+        <label>CPF:</label>
         <input type="cpf" />
       </div>
 

@@ -1,6 +1,5 @@
 .form {
     width: 35rem;
-    height: 35rem;
     flex-shrink: 0;
     border-radius: 0.5rem;
     background: #FFF;
@@ -8,21 +7,44 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    transform: scale(0.9);
 }
 
-.form > :first-child {
+.form> :first-child {
     margin-top: 70px;
 }
 
-.form > :last-child {
+.form> :last-child {
     margin-top: -12px;
     cursor: pointer;
     color: blue;
     text-decoration: underline;
 }
 
+.div2 {
+    display: flex;
+    max-width: min-content;
+}
+
+.div2 > .input {
+    width: max-content;
+    height: max-content;
+    padding: 0 12px 20px 12px
+}
+
+.div2 > .input > p {
+    margin-top: -55px;
+    margin-bottom: 4px;
+    font-size: 24px;
+}
+
+.div2 > .input > input {
+
+    width: min-content;
+}
+
 .input {
-    width: 19rem;
+    width: 22rem;
     height: 5rem;
     flex-shrink: 0;
 }
