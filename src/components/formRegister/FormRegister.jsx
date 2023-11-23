@@ -6,6 +6,11 @@ const FormRegister = () => {
     <form action="" method="" className={styles.form}>
 
       <div className={styles.div2}>
+
+        <div className={styles.barra_upper}>
+          <p className={styles.crie_sua_conta}>Crie sua conta!</p>
+        </div>
+
         <div className={styles.input}>
           <p><label>Nome:</label></p>
           <input type="nome" />
@@ -41,9 +46,9 @@ const FormRegister = () => {
         <input type="password" />
       </div>
 
-      <button type="submit">Login</button>
+      <button type="submit">Cadastrar</button>
       <div className="login">
-        <p>Já possui Login?</p>
+        <p>Já possui cadastro?</p>
       </div>
       
       <div className="login_link">
