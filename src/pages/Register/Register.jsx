@@ -1,8 +1,8 @@
 import React from "react";
-import Footer from "../../components/footer/Footer";
+import Footer from "../../components/footer/footer";
 import NewHeader from "../../components/header/header";
 import Visual from "../../components/visual/visual";
-import styles from "./Register.module.css";
+import styles from "./register.module.css";
 import img from "../../components/images/slogan.png";
 import FormRegister from "../../components/formRegister/FormRegister";
 
