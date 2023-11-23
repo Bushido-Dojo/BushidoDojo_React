@@ -1,6 +1,7 @@
 import React from "react";
 import img from "../images/logo.png";
 import book from "../images/book.svg";
+import home from "../images/home.png";
 import styles from "./header.module.css";
 
 import { Link } from "react-router-dom";
@@ -24,7 +25,7 @@ function NewHeader() {
           <p>Login</p>
         </Link>
         <Link to={"/"} className={styles.about}>
-          <img src={book} />
+          <img src={home} />
           <p>Home</p>
         </Link>
         <Link to={"/Register"} className={styles.about}>
