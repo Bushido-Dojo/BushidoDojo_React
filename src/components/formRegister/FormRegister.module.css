@@ -59,3 +59,7 @@ button {
   height: 2.5rem;
   border-radius: 34px 34px 0px 0px;
 }
+
+#h1 > span {
+    color: #FF4A00;
+}

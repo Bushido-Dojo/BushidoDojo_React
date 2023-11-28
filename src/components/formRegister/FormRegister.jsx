@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const FormRegister = () => {
   return (
     <div className={styles.form}>
-      <h1 id={styles.h1}>Crie sua conta!</h1>
+      <h1 id={styles.h1}>Crie sua <span>conta!</span></h1>
 
       <div className={styles.submit}>
         <div className={styles.parse}>
