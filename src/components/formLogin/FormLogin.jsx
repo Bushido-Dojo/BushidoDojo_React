@@ -6,7 +6,7 @@ const FormLogin = () => {
   return (
     <form action="" method="" className={styles.form}>
       <div className={styles.input}>
-        <label>Usuario:</label>
+        <label>Email:</label>
         <input type="text" placeholder="bushidodojo@gmail.com"/>
       </div>
       <div className={styles.input}>
