@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 function NewHeader() {
   return (
     <header className={styles.header}>
-      <a href="#" className={styles.logo}>
+      <a href="/" className={styles.logo}>
         <img src={img} alt="logo do bushido" />
         <h1>
           BUSHIDO <span>DOJO</span>

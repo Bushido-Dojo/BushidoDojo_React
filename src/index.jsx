@@ -12,14 +12,8 @@ import Login from "./pages/login/login";
 const Router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <Login />,
     errorElement: <Error />,
-    children: [
-      {
-        path: "/about",
-        element: <About />,
-      },
-    ],
   },
   {
     path: "/login",
@@ -29,6 +23,10 @@ const Router = createBrowserRouter([
     path: "/register",
     element: <Register />,
   },
+  {
+    path: "/about",
+    element: <About/>,
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

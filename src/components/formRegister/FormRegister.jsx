@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styles from "./FormRegister.module.css";
-import { Link } from "react-router-dom";
 import InputMask from "react-input-mask";
-const axios = require('axios');
+import { Link} from "react-router-dom"; 
+
 
 
 const FormRegister = () => {
@@ -18,6 +18,7 @@ const FormRegister = () => {
 
   const valorInput = e => setData({...data, [e.target.name]: e.target.value});
 
+  
 
   const sendAccount = (e) =>{
 
@@ -49,6 +50,7 @@ const FormRegister = () => {
     .then((response) => {
       if (response.status === 200) {
         console.log("Dados enviados com sucesso!");
+        
       } else {
         console.log("Erro ao enviar dados!");
       }
@@ -69,13 +71,13 @@ const FormRegister = () => {
             <p>
               <label>Nome:</label>
             </p>
-            <input type="text" name="nome" onChange={valorInput}/>
+            <input type="text" name="nome" onChange={valorInput} placeholder="Digite seu Nome."/>
           </div>
           <div className={styles.input}>
             <p>
               <label>Sobrenome:</label>
             </p>
-            <input type="text" name="sobrenome" onChange={valorInput} />
+            <input type="text" name="sobrenome" onChange={valorInput} placeholder="Digite seu Sobrenome." />
           </div>
         </div>
         <div className={styles.input}>
@@ -84,19 +86,35 @@ const FormRegister = () => {
         </div>
         <div className={styles.input}>
           <label>Email:</label>
-          <input type="email" name="email" onChange={valorInput}/>
+          <input type="email" name="email" placeholder="Digite seu Email."  onChange={valorInput}/>
+
         </div>
         <div className={styles.input}>
           <label>Celular:</label>
-          <input type="celular" name="celular" onChange={valorInput}/>
+          <InputMask mask="(99)99999-9999" name="celular" onChange={valorInput} placeholder="Digite Seu Número" />
+          
         </div>
         <div className={styles.input}>
           <label>Data nascimento:</label>
-          <input type="data" name="dataNascimento" onChange={valorInput} />
+          <InputMask
+          mask="99/99/9999"
+          maskPlaceholder="__/__/____"
+          onChange={valorInput}
+          value={data.dataNascimento}
+        >
+          {(inputProps) => (
+            <input
+              type="text"
+              name="dataNascimento"
+              {...inputProps}
+              placeholder="Ex.: dd/mm/aaaa"
+            />
+          )}
+        </InputMask>
         </div>
         <div className={styles.input}>
           <label>Senha:</label>
-          <input type="password" name="senha" onChange={valorInput}/>
+          <input type="password" name="senha" onChange={valorInput} placeholder="Digite sua senha."/>
         </div>
         <button type="submit">Cadastrar</button>
       </div>
