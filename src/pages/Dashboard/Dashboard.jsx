@@ -5,7 +5,9 @@ import Styles from "./Dashboard.module.css";
 
 const Dashboard = () => {
     return (
-        <div className={}/>
+        <div className={Styles.main}>
+            <HeaderHome/>
+        </div>
         );
     };
     
