@@ -15,22 +15,68 @@ const FormRegister = () => {
     dataNascimento:'',
     senha:''
   });
+  const [message, setMessage] = useState(null); 
 
   const valorInput = e => setData({...data, [e.target.name]: e.target.value});
 
   
+  const validateEmail = (email) => {
+    // Implemente a lógica de validação de e-mail conforme desejado
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
 
-  const sendAccount = (e) =>{
+  const validateDateOfBirth = (date) => {
+    const [day, month, year] = date.split('/').map(Number); // Convertendo a string para números
+    const birthDate = new Date(year, month - 1, day); // Mês é base 0 (janeiro é 0)
+    
+    const minAge = 12;
+    const currentDate = new Date();
+  
+    // Definindo a data mínima permitida com a idade mínima requerida
+    const minDate = new Date(currentDate.getFullYear() - minAge, currentDate.getMonth(), currentDate.getDate());
+  
+    // Calculando a diferença de anos
+    const ageDifference = currentDate.getFullYear() - birthDate.getFullYear();
+  
+    // Verificando se a data de nascimento já atingiu a idade mínima
+    if (birthDate > minDate || (birthDate.getTime() === minDate.getTime() && ageDifference < minAge)) {
+      return false; // Se for menor que a idade mínima
+    }
+  
+    return true; // Se tiver pelo menos a idade mínima
+  };
 
+  const sendAccount = (e) => {
     e.preventDefault();
 
-    console.log(`Nome ${data.nome}`)
-    console.log(`Sobrenome ${data.sobrenome}`)
-    console.log(`CPF ${data.cpf}`)
-    console.log(`Email ${data.email}`)
-    console.log(`Celular ${data.celular}`)
-    console.log(`Data de Nascimento ${data.dataNascimento}`)
-    console.log(`Senha ${data.senha}`)
+    // Realiza as validações
+    if (data.senha.length < 4) {
+      setMessage("A senha deve ter no mínimo 4 caracteres.");
+      return;
+    }
+
+    if (!validateEmail(data.email)) {
+      setMessage("O email informado não é válido.");
+      return;
+    }
+
+    if (/\d/.test(data.nome)) {
+      setMessage("O nome não deve conter números.");
+      return;
+    }
+    if (/\d/.test(data.sobrenome)) {
+      setMessage("O sobrenome não deve conter números.");
+      return;
+    }
+
+    if (!validateDateOfBirth(data.dataNascimento)) {
+      setMessage("A data de nascimento deve representar uma idade maior que 12 anos.");
+      return;
+    }
+
+    // Outras validações necessárias para CPF, celular e sobrenome...
+
+    // Se todas as validações passarem, continua com o envio para a API
     const dataForm = {
       nome: data.nome,
       sobrenome: data.sobrenome,
@@ -38,8 +84,9 @@ const FormRegister = () => {
       email: data.email,
       celular: data.celular,
       dataNascimento: data.dataNascimento,
-      senha: data.senha,
-    }
+      senha: data.senha
+    };
+
     fetch("http://localhost:8080/cadastro", {
       method: "POST",
       headers: {
@@ -47,19 +94,20 @@ const FormRegister = () => {
       },
       body: JSON.stringify(dataForm)
     })
-    .then((response) => {
-      if (response.status === 200) {
-        console.log("Dados enviados com sucesso!");
-        
-      } else {
-        console.log("Erro ao enviar dados!");
-      }
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+      .then((response) => {
+        if (response.status === 200) {
+          setMessage("Cadastro realizado com sucesso!");
+          console.log("Dados enviados com sucesso!");
+        } else {
+          console.log("Erro ao enviar dados!");
+          setMessage(response.data.sqlError);
+        }
+      })
+      .catch((error) => {
+        setMessage(error);
+        console.log(error);
+      });
   };
-
 
   return (
     <form className={styles.form} onSubmit={sendAccount}>
@@ -116,6 +164,9 @@ const FormRegister = () => {
           <label>Senha:</label>
           <input type="password" name="senha" onChange={valorInput} placeholder="Digite sua senha."/>
         </div>
+        <p></p>
+        {message && <p className={styles.error}>{message}</p>}
+        <p></p>
         <button type="submit">Cadastrar</button>
       </div>
       <div className="login">
