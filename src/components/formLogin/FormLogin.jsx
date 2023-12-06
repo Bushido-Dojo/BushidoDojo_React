@@ -30,7 +30,7 @@ const FormLogin = () => {
     })
     .then(response => {
       if (response.ok) {
-        window.location.href = '/dashboard-home'; // Redirecionamento após o login bem-sucedido
+        window.location.href = '/bushido-dashboard'; // Redirecionamento após o login bem-sucedido
       } else {
         // Lógica de tratamento de erro
       }

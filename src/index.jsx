@@ -8,6 +8,7 @@ import Error from "./pages/Error/Error";
 import About from "./pages/About/About";
 import Register from "./pages/Register/Register";
 import Login from "./pages/login/login";
+import Dashboard from "./pages/Dashboard/Dashboard";
 
 const Router = createBrowserRouter([
   {
@@ -26,7 +27,11 @@ const Router = createBrowserRouter([
   {
     path: "/about",
     element: <About/>,
-  }
+  },
+  {
+    path: "/bushido-dashboard",
+    element: <Dashboard/>,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
