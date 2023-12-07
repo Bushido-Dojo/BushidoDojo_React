@@ -9,16 +9,13 @@ import About from "./pages/About/About";
 import Register from "./pages/Register/Register";
 import Login from "./pages/login/login";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import Matricula from "./pages/Matricula/Matricula";
 
 const Router = createBrowserRouter([
   {
     path: "/",
     element: <Login />,
     errorElement: <Error />,
-  },
-  {
-    path: "/login",
-    element: <Login/>
   },
   {
     path: "/register",
@@ -31,7 +28,11 @@ const Router = createBrowserRouter([
   {
     path: "/bushido-dashboard",
     element: <Dashboard/>,
-  },
+    children:[{
+      path:"matricula",
+      element :<Matricula/>
+    }]
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

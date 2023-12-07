@@ -58,8 +58,7 @@ const DashBoardHome = () => {
         <h1>Perfil do Usuário</h1>
         <h2>Nome Completo: {usuario.nomeCompleto}</h2>
         <h2>Faixa: {Faixa}</h2>
-        <h2>Matricula: {usuario.Matriculado}</h2>
-        <Link to={"/dashboard-matricula"}>Matricular</Link>
+        <Link to={"matricula"}>Matricular</Link>
         </div>
 
         
