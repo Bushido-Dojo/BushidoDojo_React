@@ -74,7 +74,6 @@ const FormRegister = () => {
       return;
     }
 
-    // Outras validações necessárias para CPF, celular e sobrenome...
 
     // Se todas as validações passarem, continua com o envio para a API
     const dataForm = {
@@ -88,25 +87,33 @@ const FormRegister = () => {
     };
 
     fetch("http://localhost:8080/cadastro", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(dataForm)
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify(dataForm)
+})
+    .then((response) => {
+      if (response.status === 200) {
+        setMessage("Cadastro realizado com sucesso!");
+        console.log("Dados enviados com sucesso!");
+        
+      } else if (response.status === 500) {
+        response.json().then((data) => {
+          if (data.error && data.sqlError) {
+            setMessage(data.sqlError);
+            console.log("Erro ao cadastrar aluno:", data.sqlError);
+          } else {
+            setMessage("Erro interno no servidor.");
+            console.log("Erro interno no servidor.");
+          }
+        });
+      }
     })
-      .then((response) => {
-        if (response.status === 200) {
-          setMessage("Cadastro realizado com sucesso!");
-          console.log("Dados enviados com sucesso!");
-        } else {
-          console.log("Erro ao enviar dados!");
-          setMessage(response.data.sqlError);
-        }
-      })
-      .catch((error) => {
-        setMessage(error);
-        console.log(error);
-      });
+    .catch((error) => {
+      setMessage(error);
+      console.log(error);
+    });
   };
 
   return (
