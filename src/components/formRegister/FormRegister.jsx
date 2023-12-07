@@ -1,60 +1,28 @@
 import React, { useState } from "react";
 import styles from "./FormRegister.module.css";
 import InputMask from "react-input-mask";
-import { Link} from "react-router-dom"; 
-
-
+import { Link } from "react-router-dom";
 
 const FormRegister = () => {
   const [data, setData] = useState({
-    nome:'',
-    sobrenome:'',
-    cpf:'',
-    email:'',
-    celular:'',
-    dataNascimento:'',
-    senha:''
+    nome: '',
+    sobrenome: '',
+    cpf: '',
+    email: '',
+    celular: '',
+    dataNascimento: '',
+    senha: ''
   });
-  const [message, setMessage] = useState(null); 
+  const [message, setMessage] = useState(null);
 
-  const valorInput = e => setData({...data, [e.target.name]: e.target.value});
+  const valorInput = e => setData({ ...data, [e.target.name]: e.target.value });
 
-  
-  const validateEmail = (email) => {
-    // Implemente a lógica de validação de e-mail conforme desejado
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  };
-
-  const validateDateOfBirth = (date) => {
-    const [day, month, year] = date.split('/').map(Number); // Convertendo a string para números
-    const birthDate = new Date(year, month - 1, day); // Mês é base 0 (janeiro é 0)
-    
-    const minAge = 12;
-    const currentDate = new Date();
-  
-    // Definindo a data mínima permitida com a idade mínima requerida
-    const minDate = new Date(currentDate.getFullYear() - minAge, currentDate.getMonth(), currentDate.getDate());
-  
-    // Calculando a diferença de anos
-    const ageDifference = currentDate.getFullYear() - birthDate.getFullYear();
-  
-    // Verificando se a data de nascimento já atingiu a idade mínima
-    if (birthDate > minDate || (birthDate.getTime() === minDate.getTime() && ageDifference < minAge)) {
-      return false; // Se for menor que a idade mínima
-    }
-  
-    return true; // Se tiver pelo menos a idade mínima
-  };
 
   const sendAccount = (e) => {
     e.preventDefault();
 
-    // Realiza as validações
-    if (data.senha.length < 4) {
-      setMessage("A senha deve ter no mínimo 4 caracteres.");
-      return;
-    }
 
+<<<<<<< HEAD
     if (!validateEmail(data.email)) {
       setMessage("O email informado não é válido.");
       return;
@@ -76,6 +44,8 @@ const FormRegister = () => {
 
 
     // Se todas as validações passarem, continua com o envio para a API
+=======
+>>>>>>> bfa248ca6c68edc46a215c31a48a55eea6ad9477
     const dataForm = {
       nome: data.nome,
       sobrenome: data.sobrenome,
@@ -86,6 +56,7 @@ const FormRegister = () => {
       senha: data.senha
     };
 
+<<<<<<< HEAD
     fetch("http://localhost:8080/cadastro", {
   method: "POST",
   headers: {
@@ -114,6 +85,9 @@ const FormRegister = () => {
       setMessage(error);
       console.log(error);
     });
+=======
+
+>>>>>>> bfa248ca6c68edc46a215c31a48a55eea6ad9477
   };
 
   return (
@@ -126,7 +100,7 @@ const FormRegister = () => {
             <p>
               <label>Nome:</label>
             </p>
-            <input type="text" name="nome" onChange={valorInput} placeholder="Digite seu Nome."/>
+            <input type="text" name="nome" onChange={valorInput} placeholder="Digite seu Nome." />
           </div>
           <div className={styles.input}>
             <p>
@@ -141,35 +115,35 @@ const FormRegister = () => {
         </div>
         <div className={styles.input}>
           <label>Email:</label>
-          <input type="email" name="email" placeholder="Digite seu Email."  onChange={valorInput}/>
+          <input type="email" name="email" placeholder="Digite seu Email." onChange={valorInput} />
 
         </div>
         <div className={styles.input}>
           <label>Celular:</label>
           <InputMask mask="(99)99999-9999" name="celular" onChange={valorInput} placeholder="Digite Seu Número" />
-          
+
         </div>
         <div className={styles.input}>
           <label>Data nascimento:</label>
           <InputMask
-          mask="99/99/9999"
-          maskPlaceholder="__/__/____"
-          onChange={valorInput}
-          value={data.dataNascimento}
-        >
-          {(inputProps) => (
-            <input
-              type="text"
-              name="dataNascimento"
-              {...inputProps}
-              placeholder="Ex.: dd/mm/aaaa"
-            />
-          )}
-        </InputMask>
+            mask="99/99/9999"
+            maskPlaceholder="__/__/____"
+            onChange={valorInput}
+            value={data.dataNascimento}
+          >
+            {(inputProps) => (
+              <input
+                type="text"
+                name="dataNascimento"
+                {...inputProps}
+                placeholder="Ex.: dd/mm/aaaa"
+              />
+            )}
+          </InputMask>
         </div>
         <div className={styles.input}>
           <label>Senha:</label>
-          <input type="password" name="senha" onChange={valorInput} placeholder="Digite sua senha."/>
+          <input type="password" name="senha" onChange={valorInput} placeholder="Digite sua senha." />
         </div>
         <p></p>
         {message && <p className={styles.error}>{message}</p>}
