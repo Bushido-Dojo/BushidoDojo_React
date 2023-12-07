@@ -17,12 +17,36 @@ const FormRegister = () => {
 
   const valorInput = e => setData({ ...data, [e.target.name]: e.target.value });
 
+  const validateDateOfBirth = (date) => {
+    const [day, month, year] = date.split('/').map(Number); // Convertendo a string para números
+    const birthDate = new Date(year, month - 1, day); // Mês é base 0 (janeiro é 0)
+
+    const minAge = 12;
+    const currentDate = new Date();
+
+    // Definindo a data mínima permitida com a idade mínima requerida
+    const minDate = new Date(currentDate.getFullYear() - minAge, currentDate.getMonth(), currentDate.getDate());
+
+    // Calculando a diferença de anos
+    const ageDifference = currentDate.getFullYear() - birthDate.getFullYear();
+
+    // Verificando se a data de nascimento já atingiu a idade mínima
+    if (birthDate > minDate || (birthDate.getTime() === minDate.getTime() && ageDifference < minAge)) {
+        return false; // Se for menor que a idade mínima
+    }
+
+    return true; // Se tiver pelo menos a idade mínima
+};
+const validateEmail = (email) => {
+  console.log(email);
+  // Implemente a lógica de validação de e-mail conforme desejado
+  return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email);
+};
 
   const sendAccount = (e) => {
     e.preventDefault();
 
 
-<<<<<<< HEAD
     if (!validateEmail(data.email)) {
       setMessage("O email informado não é válido.");
       return;
@@ -44,8 +68,6 @@ const FormRegister = () => {
 
 
     // Se todas as validações passarem, continua com o envio para a API
-=======
->>>>>>> bfa248ca6c68edc46a215c31a48a55eea6ad9477
     const dataForm = {
       nome: data.nome,
       sobrenome: data.sobrenome,
@@ -56,7 +78,6 @@ const FormRegister = () => {
       senha: data.senha
     };
 
-<<<<<<< HEAD
     fetch("http://localhost:8080/cadastro", {
   method: "POST",
   headers: {
@@ -85,9 +106,6 @@ const FormRegister = () => {
       setMessage(error);
       console.log(error);
     });
-=======
-
->>>>>>> bfa248ca6c68edc46a215c31a48a55eea6ad9477
   };
 
   return (

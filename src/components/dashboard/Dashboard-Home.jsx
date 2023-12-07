@@ -38,16 +38,42 @@ const DashBoardHome = () => {
     Faixa = "Branca";
     } else if (usuario.Id_Faixa === 1) {
     Faixa = "Amarela";
+    } else if(usuario.Id_Faixa === 2){
+      Faixa = "Laranja";
+    } else if(usuario.Id_Faixa === 3){
+      Faixa = "Verde";
+    } else if(usuario.Id_Faixa === 4){
+      Faixa = "Azul";
+    } else if(usuario.Id_Faixa === 5){
+      Faixa = "Roxa";
+    } else if(usuario.Id_Faixa === 6){
+      Faixa = "Marrom";
+    } else if(usuario.Id_Faixa === 7){
+      Faixa = "Preto";
     }
+
+    if(usuario.Matriculado === "Não"){
+      return(
+        <div>
+        <h1>Perfil do Usuário</h1>
+        <h2>Nome Completo: {usuario.nomeCompleto}</h2>
+        <h2>Faixa: {Faixa}</h2>
+        <h2>Matricula: {usuario.Matriculado}</h2>
+        <Link to={"/dashboard-matricula"}>Matricular</Link>
+        </div>
+
+        
+      );
+
+    }
+
 
   return (
     <div>
       <h1>Perfil do Usuário</h1>
       <h2>Nome Completo: {usuario.nomeCompleto}</h2>
       <h2>Faixa: {Faixa}</h2>
-      <p>
-        <Link to="/">Voltar</Link>
-      </p>
+      <h2>Matricula: {usuario.Matriculado}</h2>
     </div>
   );
 };
