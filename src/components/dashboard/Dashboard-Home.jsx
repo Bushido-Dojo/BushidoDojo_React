@@ -1,20 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import "./DashBoard-Home.css"
 
 const DashBoardHome = () => {
-  const [usuario, setUsuario] = useState(null);
+  const [aluno, setAluno] = useState(null);
+  const [matriculado,setMatriculado]= useState(null);
 
   useEffect(() => {
     const fetchUsuario = async () => {
       try {
         // Obter o Id_Aluno armazenado no localStorage
-        const Id_Aluno = localStorage.getItem('Id_Aluno');
+        const token = localStorage.getItem('token');
 
-        if (Id_Aluno) {
-          const response = await fetch(`http://localhost:8080/pagina-usuario/${Id_Aluno}`);
+        if (token) {
+          const response = await fetch(`http://localhost:8080/api/aluno/dashboard/${token}`);
           if (response.ok) {
             const data = await response.json();
-            setUsuario(data.usuario);
+            setAluno(data.aluno);
+            setMatriculado(data.matriculado);
+            
           }
         } else {
           // Se o Id_Aluno não estiver disponível, você pode redirecionar para a página de login
@@ -28,37 +32,38 @@ const DashBoardHome = () => {
     fetchUsuario();
   }, []);
 
-  if (!usuario) {
+  if (!aluno) {
     return <div>Loading...</div>;
   }
 
   let Faixa;
 
-    if (usuario.Id_Faixa === 0) {
+    if (aluno.Id_Faixa === 0) {
     Faixa = "Branca";
-    } else if (usuario.Id_Faixa === 1) {
+    } else if (aluno.Id_Faixa === 1) {
     Faixa = "Amarela";
-    } else if(usuario.Id_Faixa === 2){
+    } else if(aluno.Id_Faixa === 2){
       Faixa = "Laranja";
-    } else if(usuario.Id_Faixa === 3){
+    } else if(aluno.Id_Faixa === 3){
       Faixa = "Verde";
-    } else if(usuario.Id_Faixa === 4){
+    } else if(aluno.Id_Faixa === 4){
       Faixa = "Azul";
-    } else if(usuario.Id_Faixa === 5){
+    } else if(aluno.Id_Faixa === 5){
       Faixa = "Roxa";
-    } else if(usuario.Id_Faixa === 6){
+    } else if(aluno.Id_Faixa === 6){
       Faixa = "Marrom";
-    } else if(usuario.Id_Faixa === 7){
+    } else if(aluno.Id_Faixa === 7){
       Faixa = "Preto";
     }
 
-    if(usuario.Matriculado === "Não"){
+    if(aluno.matriculado === "Não"){
       return(
         <div>
-        <h1>Perfil do Usuário</h1>
-        <h2>Nome Completo: {usuario.nomeCompleto}</h2>
+        <h2>Bem vindo {aluno.Nome}{" "}{aluno.Sobrenome}!</h2>
         <h2>Faixa: {Faixa}</h2>
-        <Link to={"matricula"}>Matricular</Link>
+        <h2>Matriculado: {matriculado}</h2>
+        Matricule-se
+        <Link to={"/bushido-dashboard/matricula"}>Matricular</Link>
         </div>
 
         
@@ -68,11 +73,11 @@ const DashBoardHome = () => {
 
 
   return (
-    <div>
+    <div className="dashboard">
       <h1>Perfil do Usuário</h1>
-      <h2>Nome Completo: {usuario.nomeCompleto}</h2>
+      <h2>Nome Completo: {aluno.Nome}{" "}{aluno.Sobrenome}</h2>
       <h2>Faixa: {Faixa}</h2>
-      <h2>Matricula: {usuario.Matriculado}</h2>
+      <h2>Matriculado: {matriculado}</h2>
     </div>
   );
 };

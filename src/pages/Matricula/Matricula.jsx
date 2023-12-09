@@ -6,6 +6,7 @@ import HeaderHome from '../../components/headerHome/HeaderHome'
 const Matricula =()=>{
     <div className="PedroMiguel">
         <HeaderHome/>
+        <MatriculaComponent/>
     </div>
 }
 

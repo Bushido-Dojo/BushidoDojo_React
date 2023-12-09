@@ -40,7 +40,7 @@ const FormRegister = () => {
 const validateEmail = (email) => {
   console.log(email);
   // Implemente a lógica de validação de e-mail conforme desejado
-  return /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email);
+  return /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email);
 };
 
   const sendAccount = (e) => {
@@ -78,7 +78,8 @@ const validateEmail = (email) => {
       senha: data.senha
     };
 
-    fetch("http://localhost:8080/cadastro", {
+    
+    fetch("http://localhost:8080/api/aluno/register", {
   method: "POST",
   headers: {
     "Content-Type": "application/json"
@@ -92,13 +93,7 @@ const validateEmail = (email) => {
         
       } else if (response.status === 500) {
         response.json().then((data) => {
-          if (data.error && data.sqlError) {
-            setMessage(data.sqlError);
-            console.log("Erro ao cadastrar aluno:", data.sqlError);
-          } else {
-            setMessage("Erro interno no servidor.");
-            console.log("Erro interno no servidor.");
-          }
+          setMessage(data.message.message)
         });
       }
     })

@@ -29,8 +29,8 @@ const Router = createBrowserRouter([
     path: "/bushido-dashboard",
     element: <Dashboard/>,
     children:[{
-      path:"matricula",
-      element :<Matricula/>
+      path:"/bushido-dashboard/matricula",
+      elemen :<Matricula/>
     }]
   }
 ]);

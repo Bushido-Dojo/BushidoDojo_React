@@ -41,7 +41,7 @@ const FormLogin = () => {
       setErrors(validationErrors);
     } else {
       try {
-        const response = await fetch('http://localhost:8080/login', {
+        const response = await fetch('http://localhost:8080/api/aluno/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -51,8 +51,8 @@ const FormLogin = () => {
 
         if (response.ok) {
           const data = await response.json();
-          if (data.Id_Aluno) {
-            localStorage.setItem('Id_Aluno', data.Id_Aluno);
+          if (data.token) {
+            localStorage.setItem('token', data.token);
             window.location.href = '/bushido-dashboard';
           } else {
             setErrors({ backendError:data.message });
