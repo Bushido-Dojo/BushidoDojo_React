@@ -3,7 +3,6 @@ import img from '../../components/images/slogan.png'
 import NewHeader from '../../components/header/header'
 import FormLogin from '../../components/formLogin/FormLogin'
 import Footer from '../../components/footer/footer'
-import Visual from '../../components/visual/visual'
 
 const login = () => {
   return (
@@ -14,7 +13,6 @@ const login = () => {
         </div>
         <div className={styles.slogan}>
           <img src={img} alt="slogan bushido" />
-          <Visual />
           <FormLogin />
         </div>
       </div>

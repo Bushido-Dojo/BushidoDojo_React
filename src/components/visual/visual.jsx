@@ -1,5 +1,4 @@
 import React from 'react'
-import img from '../images/lutador_background.png'
 import Styles from './visual.module.css'
 
 function Visual() {
@@ -12,7 +11,6 @@ function Visual() {
                     <p>Desenvolva técnicas de defesa pessoal, melhore sua forma física, desenvolva disciplina e autoconfiança.</p>
                 </div>
             </div>
-            <img src={img} className={Styles.img} alt="lutador background" />
         </visual>
     )
 }

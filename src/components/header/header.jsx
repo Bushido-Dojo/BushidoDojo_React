@@ -1,10 +1,13 @@
 import React from "react";
+
+
 import img from "../images/logo.png";
-import book from "../images/book.svg";
 import home from "../images/home.png";
 import styles from "./header.module.css";
-
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRightToBracket } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 function NewHeader() {
   return (
@@ -16,21 +19,13 @@ function NewHeader() {
         </h1>
       </a>
       <div className={styles.options}>
-        <Link to={"/about"} className={styles.about}>
-          <img src={book} />
-          <p>About us</p>
-        </Link>
-        <Link to={"/login"} className={styles.about}>
-          <img src={book} />
-          <p>Login</p>
-        </Link>
         <Link to={"/"} className={styles.about}>
-          <img src={home} />
-          <p>Home</p>
+          <p>Login</p>
+          <FontAwesomeIcon icon={faUser} style={{color: "#ffffff",}} />
         </Link>
         <Link to={"/Register"} className={styles.about}>
-          <img src={book} />
           <p>Register</p>
+          <FontAwesomeIcon icon={faRightToBracket} style={{color: "#ffffff",}} />
         </Link>
       </div>
     </header>

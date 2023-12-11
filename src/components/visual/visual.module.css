@@ -1,13 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Koulen&family=Oswald:wght@200;300;400;500;600;700&display=swap');
 
-.img {
-    position: absolute;
-    top: 10%;
-    left: 0%;
-    width: 56.125rem;
-    z-index: 0;
-}
-
 .params > p {
     font-family: 'Oswald', sans-serif;
     color: #FFF;

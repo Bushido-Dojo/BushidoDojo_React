@@ -5,7 +5,6 @@ import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Error from "./pages/Error/Error";
-import About from "./pages/About/About";
 import Register from "./pages/Register/Register";
 import Login from "./pages/login/login";
 import Dashboard from "./pages/Dashboard/Dashboard";
@@ -21,10 +20,6 @@ const Router = createBrowserRouter([
   {
     path: "/register",
     element: <Register />,
-  },
-  {
-    path: "/about",
-    element: <About/>,
   },
   {
     path: "/bushido-dashboard",
