@@ -20,12 +20,12 @@ function NewHeader() {
       </a>
       <div className={styles.options}>
         <Link to={"/"} className={styles.about}>
+        <FontAwesomeIcon icon={faUser} style={{color: "#ffffff",}} />
           <p>Login</p>
-          <FontAwesomeIcon icon={faUser} style={{color: "#ffffff",}} />
         </Link>
         <Link to={"/Register"} className={styles.about}>
+        <FontAwesomeIcon icon={faRightToBracket} style={{color: "#ffffff",}} />
           <p>Register</p>
-          <FontAwesomeIcon icon={faRightToBracket} style={{color: "#ffffff",}} />
         </Link>
       </div>
     </header>
