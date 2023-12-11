@@ -9,7 +9,6 @@ const DashBoardHome = () => {
   useEffect(() => {
     const fetchUsuario = async () => {
       try {
-        // Obter o Id_Aluno armazenado no localStorage
         const token = localStorage.getItem('token');
 
         if (token) {
@@ -56,9 +55,9 @@ const DashBoardHome = () => {
       Faixa = "Preto";
     }
 
-    if(aluno.matriculado === "Não"){
+    if(matriculado === "Não"){
       return(
-        <div>
+        <div className="dashboard">
         <h2>Bem vindo {aluno.Nome}{" "}{aluno.Sobrenome}!</h2>
         <h2>Faixa: {Faixa}</h2>
         <h2>Matriculado: {matriculado}</h2>
@@ -78,6 +77,7 @@ const DashBoardHome = () => {
       <h2>Nome Completo: {aluno.Nome}{" "}{aluno.Sobrenome}</h2>
       <h2>Faixa: {Faixa}</h2>
       <h2>Matriculado: {matriculado}</h2>
+      
     </div>
   );
 };

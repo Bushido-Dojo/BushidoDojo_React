@@ -10,6 +10,7 @@ import Register from "./pages/Register/Register";
 import Login from "./pages/login/login";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Matricula from "./pages/Matricula/Matricula";
+import { DeleteConta, DeleteContaPage } from "./pages/DeleteConta/DeleteConta";
 
 const Router = createBrowserRouter([
   {
@@ -28,10 +29,14 @@ const Router = createBrowserRouter([
   {
     path: "/bushido-dashboard",
     element: <Dashboard/>,
-    children:[{
-      path:"/bushido-dashboard/matricula",
-      elemen :<Matricula/>
-    }]
+  },
+  {
+    path: "bushido-dashboard/matricula",
+    element:<Matricula/>
+  },
+  {
+    path:"bushido-dashboard/delete-account",
+    element:<DeleteContaPage/>
   }
 ]);
 
