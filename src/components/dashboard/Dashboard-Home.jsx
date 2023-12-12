@@ -61,8 +61,8 @@ const DashBoardHome = () => {
         <h2>Bem vindo {aluno.Nome}{" "}{aluno.Sobrenome}!</h2>
         <h2>Faixa: {Faixa}</h2>
         <h2>Matriculado: {matriculado}</h2>
-        Matricule-se
-        <Link to={"/bushido-dashboard/matricula"}>Matricular</Link>
+        <h2>Não possui matricula?</h2>
+        <Link to={"/bushido-dashboard/matricula"}>Matricular-se</Link>
         </div>
 
         

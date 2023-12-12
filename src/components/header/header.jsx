@@ -27,6 +27,7 @@ function NewHeader() {
         <FontAwesomeIcon icon={faRightToBracket} style={{color: "#ffffff",}} />
           <p>Register</p>
         </Link>
+        <Link to={"/"}></Link>
       </div>
     </header>
   );
